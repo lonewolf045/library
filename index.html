@@ -1,0 +1,60 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link href = "styles/style.css" rel = "stylesheet">
+    </head>
+    <body>
+        <header id = 'heading-container'>
+        <h1 id = 'heading'>Library</h1>
+        <p id = 'heading-caption'>Ultimate Book Repository</p>
+        </header>
+        <main>
+            <div id = 'container'>
+                
+            </div>
+            <button class="open-button" onclick="openForm()">Add New Book</button>
+            <div class="form-popup" id="myForm">
+                <form action="/action_page.php" class="form-container">
+                <h1>Login</h1>
+  
+                <label for="title"><b>Title</b></label>
+                <input type="text" placeholder="Enter Title" name="title" required>
+
+                <label for="author"><b>Author</b></label>
+                <input type="text" placeholder="Enter Author" name="author" required>
+  
+                <label for="pages"><b>Pages</b></label>
+                <input type="number" placeholder="Enter number of pages" name="pages" required>
+                <div id = 'radio'>
+                    <b>Please select your gender:</b>
+                    <div>
+                        <input type="radio" id="male" name="gender" value="male">
+                        <label for="male">Male</label><br>
+                    </div>
+                    <div>
+                        <input type="radio" id="female" name="gender" value="female">
+                        <label for="female">Female</label><br>
+                    </div>
+                    <div>
+                        <input type="radio" id="other" name="gender" value="other">
+                        <label for="other">Other</label>
+                    </div>
+                </div>
+  
+                <button type="submit" class="btn">Add Book</button>
+                <button type="submit" class="btn cancel" onclick="closeForm()">Close</button>
+                </form>
+            </div>
+        </main>
+        <script>
+            function openForm() {
+                document.getElementById("myForm").style.display = "block";
+            }
+  
+            function closeForm() {
+                document.getElementById("myForm").style.display = "none";
+            }
+        </script>
+        <script src = "scripts/main.js"></script>
+    </body>
+</html>  
