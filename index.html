@@ -10,39 +10,35 @@
         </header>
         <main>
             <div id = 'container'>
-                
+
             </div>
             <button class="open-button" onclick="openForm()">Add New Book</button>
             <div class="form-popup" id="myForm">
-                <form action="/action_page.php" class="form-container">
+                <form action="/action_page.php" class="form-container" name = "myForm">
                 <h1>Login</h1>
   
                 <label for="title"><b>Title</b></label>
-                <input type="text" placeholder="Enter Title" name="title" required>
+                <input type="text" name="title" required>
 
                 <label for="author"><b>Author</b></label>
-                <input type="text" placeholder="Enter Author" name="author" required>
+                <input type="text" name="author" required>
   
                 <label for="pages"><b>Pages</b></label>
-                <input type="number" placeholder="Enter number of pages" name="pages" required>
+                <input type="number" name="pages" required>
                 <div id = 'radio'>
-                    <b>Please select your gender:</b>
+                    <b>Have you read it ?</b>
                     <div>
-                        <input type="radio" id="male" name="gender" value="male">
-                        <label for="male">Male</label><br>
+                        <input type="radio" id="yes" name="read" value="Read" checked>
+                        <label for="yes">Yes</label><br>
                     </div>
                     <div>
-                        <input type="radio" id="female" name="gender" value="female">
-                        <label for="female">Female</label><br>
-                    </div>
-                    <div>
-                        <input type="radio" id="other" name="gender" value="other">
-                        <label for="other">Other</label>
+                        <input type="radio" id="no" name="read" value="Not Read">
+                        <label for="no">No</label><br>
                     </div>
                 </div>
   
-                <button type="submit" class="btn">Add Book</button>
-                <button type="submit" class="btn cancel" onclick="closeForm()">Close</button>
+                <button type="button" class="btn">Add Book</button>
+                <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
                 </form>
             </div>
         </main>

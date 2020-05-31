@@ -86,6 +86,7 @@
     text-align: center;
     width: 40%;
     color: #f3f3f3;
+    height: 20%;
 }
 
 #heading {
@@ -107,4 +108,54 @@ body {
 b,label,input {
     font-family: 'Dosis', sans-serif;
     font-size: 1.125rem;
+}
+
+#container {
+    display: grid;
+    grid-template-columns: 15% 15% 15% 15% 15%;
+    column-gap: 5%;
+    position: fixed;
+    width: 100%;
+    top: 30%;
+    color: #fafafa;
+    row-gap: 5%;
+    height: 45%;
+    
+}
+
+.book-card {
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(	125, 255, 255, 0.5);
+    border-radius: 2.5%;
+}
+
+.book-detail {
+    padding: 2.5%;
+}
+
+.book-card-tools {
+    align-self: baseline;
+    display: grid;
+    grid-template-columns: auto auto;
+    column-gap: 0%;
+    padding: 0%;
+    width: 100%;
+    height: 130%;
+    align-items: flex-end;
+}
+
+.read {
+    background-color: greenyellow;
+    border: none;
+}
+
+.not-read {
+    background-color: red;
+    border: none;
+}
+
+.delete {
+    background-color: sandybrown;
+    border: none;
 }
