@@ -33,6 +33,11 @@ Book.prototype.updateRead = function() {
         this.read = 'Read';  
   }
 
+  Book.prototype.removeBook = function(index) {
+    let i = new Number(index);
+    myLibrary.splice(index,1);
+  }
+
 const addBookToLibrary = function(title,author,pages,read) {
     let newBook = new Book(title,author,pages,read);
     myLibrary.push(newBook);
@@ -43,6 +48,11 @@ function openForm() {
   
 function closeForm() {
     document.getElementById("myForm").style.display = "none";
+    clearFormFields();
+}
+
+function clearFormFields() {
+  document.forms["myForm"].reset();
 }
 
 function render() {
@@ -70,12 +80,12 @@ function render() {
     bookTrash.classList.add("delete");
     
     bookRead.addEventListener('click',(e) => {
-        myLibrary[i].updateRead(bookCardTools.id);
+        myLibrary[i].updateRead();
         render();
     });
 
     bookTrash.addEventListener('click',(e) => {
-        myLibrary[i].removeBook(bookCardTools.id);
+        Book.prototype.removeBook(bookCardTools.id);
         render();
     });
 

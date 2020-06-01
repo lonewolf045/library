@@ -31,8 +31,8 @@
 .form-container {
   max-width: 300px;
   padding: 10px;
-  background-color: white;
-  border: 3px solid #f1f1f1;
+  background-color: rgba(155,255,255,0.5);
+  border: 3px solid rgba(145,245,240,0.5);
 }
 
 /* Full-width input fields */
@@ -101,12 +101,12 @@
 }
 
 body {
-    background-image : linear-gradient( 115deg, rgba(	204, 43, 86, 0.8), rgba(117,58,136, 0.7) ), url(https://i.pinimg.com/originals/44/98/23/449823765aca526e9d371d1cde5e2923.jpg);
+    background-image : linear-gradient( 115deg, rgba(	199,144,129, 0.8), rgba(223,165,121, 0.7) ), url(https://i.pinimg.com/originals/44/98/23/449823765aca526e9d371d1cde5e2923.jpg);
     font-family: 'Montserrat', sans-serif;
 }
 
 b,label,input {
-    font-family: 'Dosis', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-size: 1.125rem;
 }
 
@@ -117,45 +117,50 @@ b,label,input {
     position: fixed;
     width: 100%;
     top: 30%;
-    color: #fafafa;
+    color: white;
     row-gap: 5%;
     height: 45%;
     
 }
 
 .book-card {
-    display: flex;
+    display: grd;
+    grid-template-rows: 25% 25% 25% 25%;
     flex-direction: column;
-    background-color: rgba(	125, 255, 255, 0.5);
+    background-color: rgba(255, 191, 128, 0.6);
     border-radius: 2.5%;
+    color: white;
 }
 
 .book-detail {
     padding: 2.5%;
+    height: 25%;
 }
 
 .book-card-tools {
-    align-self: baseline;
     display: grid;
-    grid-template-columns: auto auto;
+    grid-template-columns: 50% 50%;
     column-gap: 0%;
     padding: 0%;
     width: 100%;
-    height: 130%;
+    height: 25%;
     align-items: flex-end;
 }
 
 .read {
     background-color: greenyellow;
     border: none;
+    height: 100%;
 }
 
 .not-read {
     background-color: red;
     border: none;
+    height: 100%;
 }
 
 .delete {
     background-color: sandybrown;
     border: none;
+    height: 100%;
 }
