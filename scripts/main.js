@@ -36,6 +36,7 @@ Book.prototype.updateRead = function() {
   Book.prototype.removeBook = function(index) {
     let i = new Number(index);
     myLibrary.splice(index,1);
+    localStorage.setItem("MyLibrary", JSON.stringify(myLibrary));
   }
 
 const addBookToLibrary = function(title,author,pages,read) {
@@ -122,10 +123,11 @@ btn.addEventListener("click", () => {
     closeForm();
 
 });
+
+
   //const abook = new Book ("Great Expectations","Charles Dickens",400,true);
   //console.log(abook.info());
   //var newObj = new Object();
-
   addBookToLibrary("The Fellowship of the Ring", "J.R.R. Tolkien", 423, "Not read");
   addBookToLibrary("Flowers for Algernon", "Daniel Keyes", 311, "Not read");
   addBookToLibrary("Alice in Wonderland", "Lewis Carroll", 200, "Not read");
