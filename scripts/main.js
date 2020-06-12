@@ -1,4 +1,17 @@
-// Get a reference to the database service
+var firebaseConfig = {
+  apiKey: "AIzaSyAY4pwMr8KLlmU_axcpOK6C84IuWpAdjDY",
+  authDomain: "library-275b1.firebaseapp.com",
+  databaseURL: "https://library-275b1.firebaseio.com",
+  projectId: "library-275b1",
+  storageBucket: "library-275b1.appspot.com",
+  messagingSenderId: "1082532841039",
+  appId: "1:1082532841039:web:d0af44b20c366cfd004c3a",
+  measurementId: "G-81K1MYNJRK"
+};
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+firebase.analytics();
+
 let db = firebase.database();
 let databaseData = "";
 let myLibrary = [];
@@ -158,14 +171,4 @@ btn.addEventListener("click", () => {
 
 });
 
-
-  //const abook = new Book ("Great Expectations","Charles Dickens",400,true);
-  //console.log(abook.info());
-  //var newObj = new Object();
-  addBookToLibrary("The Fellowship of the Ring", "J.R.R. Tolkien", 423, "Not read");
-  addBookToLibrary("Flowers for Algernon", "Daniel Keyes", 311, "Not read");
-  addBookToLibrary("Alice in Wonderland", "Lewis Carroll", 200, "Not read");
-  addBookToLibrary("1984", "George Orwell", 328, "Read");
-  addBookToLibrary("Slaughterhouse-Five", "Kurt Vonnegut", 215, "Read");
-  addBookToLibrary("Silk Roads", "Peter Frankopan", 650, "Read");
-  render();
+render();
