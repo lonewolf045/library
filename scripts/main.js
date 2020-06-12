@@ -1,3 +1,6 @@
+// Get a reference to the database service
+let db = firebase.database();
+let databaseData = "";
 let myLibrary = [];
 
 const btn = document.querySelector(".btn");
@@ -19,7 +22,7 @@ function Book (title, author,pages,read) {
     }*/
   }
   
-Book.prototype.updateRead = function() {
+Book.prototype.updateRead = function(index) {
     /*let marker;
       if(read) {
         marker = 'read';
@@ -27,21 +30,32 @@ Book.prototype.updateRead = function() {
         marker = 'not read yet';
       }*/
     let currentStateRead = this.read;
+    let arrayKeys = Object.keys(databaseData);
+    let key = arrayKeys[index];
+    let refUpdate = db.ref().child("books/" + key);
     if(currentStateRead == 'Read')
         this.read = 'Not Read';
     else
         this.read = 'Read';  
+    refUpdate.update({
+      read : this.read
+    });
   }
 
   Book.prototype.removeBook = function(index) {
-    let i = new Number(index);
+    /*let i = new Number(index);
     myLibrary.splice(index,1);
-    localStorage.setItem("MyLibrary", JSON.stringify(myLibrary));
+    localStorage.setItem("MyLibrary", JSON.stringify(myLibrary));*/
+    let arrayKeys = Object.keys(databaseData);
+    let key = arrayKeys[index];
+    let refRemove = db.ref().child("books/" + key);
+    refRemove.remove();
   }
 
 const addBookToLibrary = function(title,author,pages,read) {
     let newBook = new Book(title,author,pages,read);
     myLibrary.push(newBook);
+    pushToDatabase(title,author,pages,read);
 }
 function openForm() {
     document.getElementById("myForm").style.display = "block";
@@ -56,8 +70,26 @@ function clearFormFields() {
   document.forms["myForm"].reset();
 }
 
+function pushToDatabase(title, author, pages, read) {
+  let reference = db.ref().child("books");
+  let newReference = reference.push();
+  newReference.set({
+      title : title,
+      author : author,
+      pages : pages,
+      read : read
+  });
+}
+
 function render() {
     container.innerHTML = "";
+    let databaseReference = db.ref().child("books");
+    databaseReference.on("value", function (snapshot) {
+
+      // Get all the values in the database
+      databaseData = snapshot.val();
+
+      let myLibrary = Object.values(databaseData);
     for(let i = 0; i < myLibrary.length;i++) {
     const bookCard = document.createElement("div");
     const bookTitle = document.createElement("div");
@@ -81,7 +113,7 @@ function render() {
     bookTrash.classList.add("delete");
     
     bookRead.addEventListener('click',(e) => {
-        myLibrary[i].updateRead();
+        Book.prototype.updateRead(bookCardTools.id);
         render();
     });
 
@@ -108,6 +140,8 @@ function render() {
 
     container.appendChild(bookCard);
     }
+
+  });
 }
 
 btn.addEventListener("click", () => {
