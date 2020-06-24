@@ -70,18 +70,7 @@ const addBookToLibrary = function(title,author,pages,read) {
     myLibrary.push(newBook);
     pushToDatabase(title,author,pages,read);
 }
-function openForm() {
-    document.getElementById("myForm").style.display = "block";
-}
-  
-function closeForm() {
-    document.getElementById("myForm").style.display = "none";
-    clearFormFields();
-}
 
-function clearFormFields() {
-  document.forms["myForm"].reset();
-}
 
 function pushToDatabase(title, author, pages, read) {
   let reference = db.ref().child("books");
@@ -174,3 +163,16 @@ btn.addEventListener("click", () => {
 render();
 
 })();
+
+function openForm() {
+  document.getElementById("myForm").style.display = "block";
+}
+
+function closeForm() {
+  document.getElementById("myForm").style.display = "none";
+  clearFormFields();
+}
+
+function clearFormFields() {
+document.forms["myForm"].reset();
+}
