@@ -1,4 +1,4 @@
-var firebaseConfig = {
+(function(){var firebaseConfig = {
   apiKey: "AIzaSyAY4pwMr8KLlmU_axcpOK6C84IuWpAdjDY",
   authDomain: "library-275b1.firebaseapp.com",
   databaseURL: "https://library-275b1.firebaseio.com",
@@ -172,3 +172,5 @@ btn.addEventListener("click", () => {
 });
 
 render();
+
+})();
